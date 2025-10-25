@@ -1,6 +1,6 @@
 # starts a flame effect once the correct time is reached, staying on until the off time.
-# while the strip is on during waking hours the sensor will not record a value or sent it to the mqtt service.
-# it was far too problematic
+# note this doesn't currently work with daylight saving adjustment so you may need to offset
+# the start and end hours to compensate
 
 import WIFI_CONFIG
 from network_manager import NetworkManager
@@ -19,15 +19,15 @@ from pimoroni_i2c import PimoroniI2C
 # Set how many LEDs you have
 NUM_LEDS = 144
 
-# How much snow? [bigger number = more flames]
+# How much fire? [bigger number = more flames]
 FLAME_INTENSITY = 0.0035
 
 # Change RGB colours here (RGB colour picker: https://g.co/kgs/k2Egjk )
-BACKGROUND_COLOUR = [0, 40, 0]  # dim blue
-FLAME_COLOUR = [80, 255, 0]  # bluish white
+BACKGROUND_COLOUR = [0, 40, 0]  # a deeper red
+FLAME_COLOUR = [80, 255, 0]  # and more yellow and stronger red for the new flames
 
 # how quickly current colour changes to target colour [1 - 255]
-FADE_UP_SPEED = 10  # abrupt change for a snowflake
+FADE_UP_SPEED = 10  # abrupt change for a a sharper flame
 FADE_DOWN_SPEED = 5
 
 # time to wake up and to turn the light off
